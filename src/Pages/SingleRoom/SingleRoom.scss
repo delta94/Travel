@@ -1,0 +1,235 @@
+.btn_primary {
+  display: inline-block;
+  text-decoration: none;
+  letter-spacing: #fff;
+  color: #fff;
+  background: rgb(0, 132, 137);
+  padding: 0.4rem 0.9rem;
+  border: 3px solid rgb(0, 132, 137);
+
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.btn_primary:hover {
+  background: transparent;
+  color: #fff;
+}
+.single_room {
+    padding: 5rem 0 0 0;
+  }
+  .single_room_images {
+    width: 80vw;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-row-gap: 2rem;
+    grid-column-gap: 50px;
+  }
+  .single_room_images img {
+    width: 100%;
+    display: block;
+  }
+ .single_room_info {
+   margin-top: 50px ;
+   letter-spacing: normal;
+   
+ }
+.desc {
+  font-size: 18px;
+  p {
+    line-height: 1.7;
+  }
+}
+  .desc h3 {
+    text-transform: capitalize;
+    margin-top: 20px;
+  }
+  
+  .room_booking {
+    display: none;
+  }
+  .info h6 {
+    font-weight: 300;
+  }
+  // .room_extras {
+  //   width: 80vw;
+  //   margin: 0 auto;
+  // }
+  .desc {
+    width: 80vw;
+    margin: 0 auto 3rem auto;
+  }
+  // .room_extras h6 {
+  //   text-transform: capitalize;
+  // }
+  .extras {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    grid-column-gap: 2rem;
+    grid-row-gap: 1rem;
+  }
+  .room_booking1 {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    left: 0px;
+    bottom: 0px;
+    z-index: 9999;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px 1px;
+    padding: 15px 30px;
+
+    .headerline {
+      h2 {
+        font-size: 30px;
+        line-height: 20px;
+        color: rgb(44, 44, 44);
+        span {
+          font-size: 16px;
+          font-weight: 700;
+        }
+      }
+      span {
+        font-size: 20px;
+
+      }
+      
+    }
+    .saveArea {
+
+      justify-content: center;
+      .btnSave {
+        cursor: pointer;
+        outline: none;
+        border-radius: 6px;
+        border: 1px solid rgb(0, 132, 137);
+        padding: 12px 78px;
+        background-color:rgb(0, 132, 137);
+        &:hover {
+          background-color:rgb(0, 132, 120);
+        }
+        span {
+          
+          color: #fff;
+          font-size: 15px;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  
+  @media screen and (min-width: 992px) {
+    .single_room_images,
+    .single_room_info
+     {
+      width: 95vw;
+      max-width: 1170px;
+      position: relative;
+      
+
+    }
+    // .room_extras {
+    //   margin-top: 20px;
+      
+
+    // }
+    .room_booking1 {
+      display: none;
+    }
+    .room_booking {
+      // position: fixed;
+      display: block;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 20px;
+      padding: 1rem;
+      border-radius: 3px;
+      width: 350px;
+      top: 0px;
+      header {
+  
+          padding: 20px 25px 20px;
+          border-bottom: 1px solid rgb(235, 235, 235);
+          display: flex;
+          justify-content: space-between;
+          flex-direction: column;
+          .headerline {
+            display: flex;
+            margin-bottom: 20px;
+            justify-content: space-between;
+          }
+          h2 {
+              color: rgb(44, 44, 44);
+              font-size: 20px;
+              margin-top: -4px;
+              margin-bottom: 0px;
+              font-weight: 700;
+              padding-left: 20px;
+              
+              
+              span {
+                  font-size: 15px;
+                  font-weight: 400;
+                  margin: 0px;
+                  
+              }
+          }
+          .contact {
+              text-decoration: none;
+              font-size: 15px;
+              color: rgb(0, 132, 137);
+              font-weight: 700;
+              padding-top: 10px;
+          }
+      }
+      .content {
+          .formContainer {
+              padding: 0px 30px;
+              label {
+                font-size: 18px;
+                color: rgb(44, 44, 44);
+                text-transform: capitalize;
+                margin: 15px 0;
+                display: block;
+              }
+              .saveArea {
+                margin-top: 20px;
+                justify-content: center;
+                .btnSave {
+                  cursor: pointer;
+                  outline: none;
+                  border-radius: 6px;
+                  border: 1px solid rgb(0, 132, 137);
+                  padding: 12px 78px;
+                  background-color:rgb(0, 132, 137);
+                  &:hover {
+                    background-color:rgb(0, 132, 120);
+                  }
+                  span {
+                    
+                    color: #fff;
+                    font-size: 15px;
+                    text-decoration: none;
+                  }
+                }
+              }
+          }
+      }
+      
+    }
+    .single_room_info {
+      width: 95vw;
+      display: grid ;
+      margin: 2rem auto;
+      grid-template-columns: 2.5fr 1fr ;
+      grid-column-gap: 2rem;
+      .desc {
+        width: auto;
+      }
+    }
+    .info {
+      padding-left: 3rem;
+    }
+  }

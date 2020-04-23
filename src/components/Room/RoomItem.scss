@@ -1,0 +1,148 @@
+.room {
+    
+    transition: var(--mainTransition);
+    border-radius: 6px;
+  }
+  .room:hover {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 25px;
+  }
+  
+  .img_container {
+    position: relative;
+    
+  }
+  .img_container img {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    width: 100%;
+    display: block;
+    transition: var(--mainTransition);
+    
+  }
+  .price_top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--mainWhite);
+    padding: 0.3rem 0.6rem 0.5rem;
+    border-bottom-right-radius: 1rem;
+    border-top-left-radius: 6px;
+    font-size: 0.5rem;
+    text-align: center;
+    transition: var(--mainTransition);
+    h6 {
+      margin-bottom: 0;
+      font-size: 15px;
+      font-weight: 300;
+      letter-spacing: var(--mainSpacing);
+    }
+    p {
+      font-size: 10px;
+    }
+  }
+  
+  .room_link {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: scale(0);
+    transition: all 0.3s linear;
+  }
+  .btn_primary {
+    display: inline-block;
+    text-decoration: none;
+    letter-spacing: #fff;
+    color: #fff;
+    background: rgb(0, 132, 137);
+    padding: 0.4rem 0.9rem;
+    border: 3px solid rgb(0, 132, 137);
+    transition: rgb(0, 132, 137);
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .btn_primary:hover {
+    background: transparent;
+    color: #fff;
+  }
+  .img_container:hover {
+    background: rgba(0, 0, 0, 0.5);
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+  }
+  .img_container:hover img {
+    opacity: 0.3;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+  }
+  .img_container:hover .price_top {
+    opacity: 0;
+  }
+  .img_container:hover .room_link {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  .room_info {
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    padding: 15px;
+    border-width: 0px 1px 1px;
+    border-style: solid;
+    border-color: rgb(230, 230, 230);
+    transition: border-color 0.2s ease 0s;
+    display: flex;
+    flex-direction: column;
+
+    a {
+      text-decoration: none;
+      margin-bottom: 5px;
+    }
+    .RoomItemaddress {
+        color: rgb(144, 144, 144);
+        font-size: 14px;
+        font-weight: 400;
+        white-space: nowrap;
+        width: 100%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    .RoomItemname{
+        color: rgb(44, 44, 44);
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 5px;
+        &:hover {
+            color:rgb(0, 132, 137);
+        }
+    }
+    .RoomItemprice {
+        color: rgb(44, 44, 44);
+        font-size: 14px;
+        font-weight: 400;
+        margin-top: 1px;
+        width: 100%;
+        line-height: 25px;
+        overflow: hidden;
+
+    }
+
+    .bookingnow {
+      margin-top: 10px;
+
+      .btnBooking {
+        outline: none;
+        border-radius: 6px;
+        border: 1px solid rgb(0, 132, 137);
+        padding: 6px 12px;
+        background-color:rgb(0, 132, 137);
+        &:hover {
+          background-color:rgb(0, 132, 120);
+        }
+        a {
+           
+          color: #fff;
+          font-size: 14px;
+          text-decoration: none;
+        }
+      }
+    }
+  }

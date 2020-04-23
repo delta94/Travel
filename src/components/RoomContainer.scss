@@ -1,0 +1,14 @@
+
+.roomContainer {
+    margin-top: 50px;
+}
+@media screen and (min-width: 992px){
+
+.roomContainer {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-column-gap: 2rem;
+    padding: 20px;
+    }
+}
+  

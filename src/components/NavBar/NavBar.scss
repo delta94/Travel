@@ -1,0 +1,86 @@
+.NavBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.75rem 2rem;
+    background: rgb(255, 255, 255);
+    z-index: 1;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 20px;
+    ul {
+      margin-right: 20px;
+    }
+    li {
+      margin-left :25px;
+      a {
+        height: 100%;
+        align-items: center;
+        padding: 10px;
+      }
+    }
+    .NavBar__center__header {
+      display: flex;
+      justify-content: space-between;
+        
+        img {
+            width: 180px;
+            height: 36px;
+        }
+        
+    }
+    .btn_acc {
+      list-style: none;
+      display: flex;
+      
+      .liSignup   {
+        outline: none;
+        border-radius: 6px;
+        border: 1px solid rgb(0, 132, 137);
+        background-color:rgb(0, 132, 137);
+        a {
+          font-size: 16px;
+          text-decoration: none;
+        }
+        
+        .Signup {
+          
+          color: rgb(255, 255, 255);
+          background-color: rgb(0, 132, 137);
+          transition: opacity 0.2s ease 0s;
+        }
+      }
+    }
+
+
+    .Navbtn {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      outline: none;
+    }
+    .Navicon {
+      font-size: 1.5rem;
+      color: var(--primaryColor);
+    }
+    
+    @media screen and (min-width: 768px) {
+      .Navbtn {
+        display: none;
+      }
+      
+      
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    
+    .NavBar__center {
+      max-width: 1170px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+    }
+    
+  }
+
+  

@@ -1,0 +1,191 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+:root {
+  --primaryColor: #af9a7d;
+  --mainWhite: #fff;
+  --offWhite: #f7f7f7;
+  --mainBlack: #222;
+
+  --mainSpacing: 3px;
+
+}
+/* globals */
+body {
+  padding-top: 60px;
+  background: var(--mainWhite);
+  font-family: Lato;
+  line-height: 1.4;
+  font-family: 'Titillium Web', sans-serif;
+}
+/* h1 {
+  font-size: 3em;
+  line-height: 1;
+  margin-bottom: 0.5em;
+} */
+
+h3 {
+  font-size: 1.5em;
+  line-height: 1;
+  margin-bottom: 1em;
+}
+
+.btn_primary {
+  display: inline-block;
+  text-decoration: none;
+  letter-spacing: #fff;
+  color: #fff;
+  background: rgb(0, 132, 137);
+  padding: 0.4rem 0.9rem;
+  border: 3px solid rgb(0, 132, 137);
+  transition: rgb(0, 132, 137);
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.btn_primary:hover {
+  background: transparent;
+  color: #fff;
+}
+.loading {
+  text-transform: capitalize;
+  text-align: center;
+  margin-top: 3rem;
+}
+.error {
+  text-align: center;
+  text-transform: uppercase;
+  margin: 2rem 0;
+}
+.empty-search {
+  text-align: center;
+  text-transform: capitalize;
+  margin: 2rem 0;
+  padding: 1rem;
+}
+
+
+.nav-links {
+  height: 0;
+  overflow: hidden;
+  transition: rgb(0, 132, 137);
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-end;
+}
+.nav-links a {
+  display: block;
+  text-decoration: none;
+  /* padding: 1rem 0; */
+  color: #000000;
+  transition: rgb(0, 132, 137);
+  text-align: center;
+
+
+}
+.nav-links a:hover {
+  color: rgb(0, 132, 137);
+}
+
+.show-nav {
+  height: 50px;
+}
+@media screen and (min-width: 768px) {
+  
+  /* li {
+    padding-left: 50px;
+  } */
+  .nav-links {
+    height: auto;
+    display: flex;
+    /* margin-left: 4rem; */
+    justify-content: space-between;
+  }
+  .nav-links a {
+    margin: 0 1rem;
+    padding: 0.5rem 0;
+  }
+}
+/* end of navbar */
+/* Hero */
+.defaultHero,
+.roomsHero {
+  min-height: calc(100vh - 66px);
+  background: url("./images/thum1.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.roomsHero {
+  background-image: url("./images/room-2.jpeg");
+  min-height: 60vh;
+}
+/* End of Hero */
+/* Banner */
+.banner {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+  text-transform: capitalize;
+  letter-spacing: var(--mainSpacing);
+}
+.banner h1 {
+  font-size: 2.5rem;
+}
+.banner div {
+  width: 10rem;
+  height: 5px;
+  background: #af9a7d;
+  margin: 1.7rem auto;
+}
+.banner p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+@media screen and (min-width: 576px) {
+  .banner {
+    padding: 2rem 3rem;
+  }
+  .banner h1 {
+    font-size: 3rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .banner {
+    padding: 2rem 6rem;
+  }
+  .banner h1 {
+    font-size: 4rem;
+  }
+}
+/* End of Banner */
+/* Title */
+.section-title {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.section-title h4 {
+  color: rgb(44, 44, 44);
+    font-size: 25px;
+    line-height: 30px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+.section-title div {
+  width: 5rem;
+  height: 5px;
+  margin: 0 auto;
+  background: var(--primaryColor);
+}
+/* end of Title */
+
+
+
+
+
+

@@ -1,0 +1,37 @@
+.roomslist {
+    // padding: 5rem 0;
+    margin: 0 auto;
+    .roomslist_center {
+  
+        margin: 0 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-row-gap: 2rem;
+        grid-column-gap: 30px;
+      }
+      h3 {
+          margin-top: 15px;
+          padding-left: 40px;
+      }
+  }
+  
+  
+  @media screen and (min-width: 776px) {
+    .roomslist_center {
+        margin: 0 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-row-gap: 1rem;
+        grid-column-gap: 30px;
+      
+    }
+  }
+  @media screen and (min-width: 992px) {
+    .roomslist_center {
+      margin: 0 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-row-gap: 1rem;
+        grid-column-gap: 30px;
+    }
+  }

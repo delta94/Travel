@@ -1,0 +1,79 @@
+.filter_container {
+    margin-top: -40px;
+    margin: 0 20px;
+  }
+  .filter_form {
+  
+    width: 100%;
+    
+    display: grid;
+    grid-template-rows: repeat(auto-fit);
+    grid-row-gap: 2rem;
+    padding: 25px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 20px;
+    border-radius: 6px;
+  
+  }
+  .priceCustom {
+    width: 25px;
+    height: 25px;
+    background: rgb(0, 132, 137);
+    cursor: pointer;
+  }
+  .form_group {
+    text-transform: capitalize;
+  
+  }
+  .form_group label {
+    display: block;
+    color: #D7D8DC;
+  }
+  .form_control {
+    width: 100%;
+    border: 1px solid #D7D8DC;
+    font-size: 1rem;
+    border-radius: 5px;
+    height: 30px;
+    margin-top: 10px;
+    
+  }
+  .priceCustom {
+    height: 30px;
+    width: 15px;
+    border-radius: 5px;
+    background: #FFFFFF;
+  }
+  .size_inputs {
+    display: flex;
+    
+  }
+  .size_input {
+    width: 40%;
+    padding: 0.2rem;
+    border: 1px solid #D7D8DC;
+    border-radius: 0.3rem;
+    margin-right: 0.3rem;
+  }
+  .single_extra label {
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 5px;
+  }
+  @media screen and (min-width: 776px) {
+    .filter_container {
+      margin-top: -40px;
+      margin-left: 20px;
+    }
+    .filter_form {
+    }
+  }
+  @media screen and (min-width: 992px) {
+    .filter_container {
+      margin-top: -40px;
+      // margin: 0 20px;
+    }
+    .filter_form {
+      width: 20vw;
+
+    }
+  }
