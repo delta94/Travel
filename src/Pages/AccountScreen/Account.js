@@ -4,7 +4,7 @@ import styles from './Account.scss'
 import { Link } from 'react-router-dom'
 import { AiFillCalendar, AiOutlineUser } from "react-icons/ai";
 import Profile from '../../components/Profile/Profile'
-import Booking from '../../components/Profile/Booking'
+// import Booking from '../../components/Profile/Booking'
 export default class Account extends Component {
     static propTypes = {
         prop: PropTypes
