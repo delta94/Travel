@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './Signin.scss';
 import * as actions from '../../store/actions';
 import { connect } from 'react-redux';
+import { NavLink, Redirect } from 'react-router-dom';
 
 class Signin extends React.Component {
 
@@ -47,7 +48,7 @@ class Signin extends React.Component {
 
     render() {
         return (
-            
+            this.state.isAuth ? <Redirect to="/" /> :
                 <div className={styles.LoginForm}>
                     <div className={styles.row}>
                         <div className={styles.login}>

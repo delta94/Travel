@@ -33,3 +33,22 @@ export function* signUpSaga(action) {
       alert(error.response.data.message);
   }
 }
+
+export function* getInfoUserSaga(action) {
+  try {
+      let token = localStorage.getItem('x-auth-token');
+      console.log(token);
+      if (token == null) {
+          
+      }
+      else{
+          let result = yield axios.get(`localhost:8888/me`, {headers: {'x-auth-token': token}})
+        debugger;
+          if(result.data){
+              yield put(actions.getUserInfoSuccess(result.data.data.user));
+          }
+      }
+  } catch (error) {
+      
+  }
+}

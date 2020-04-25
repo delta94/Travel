@@ -9,7 +9,7 @@ import Error from './Pages/ErrorScreen/Error';
 import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
 import Account from './Pages/AccountScreen/Account'
-
+// const { createProxyMiddleware } = require('http-proxy-middleware');
 import { Route, Switch } from 'react-router-dom';
 
 function App() {

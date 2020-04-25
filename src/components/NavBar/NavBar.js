@@ -9,6 +9,9 @@ class NavBar extends Component {
     state = {
         isOpen: false
     }
+    componentDidMount(){
+        this.props.getUserInfo()
+    }
     handleToggle = () => {
         this.setState({ isOpen: !this.state.isOpen })
     }
@@ -54,6 +57,6 @@ const mapStateToProps = state => ({
     isAuth: state.user.isAuth
 })
 const mapDispatchToProps = dispatch => ({
-    
+    getUserInfo: () => dispatch(actions.getUserInfo())
 })
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

@@ -1,7 +1,7 @@
 import { takeEvery } from 'redux-saga/effects';
 import * as actionTypes from '../actionTypes';
 
-import { signInSaga, signUpSaga } from './user'
+import { signInSaga, signUpSaga, getInfoUserSaga } from './user'
 import { getAllRoom } from './roomList'
 
 export function* watchRoomList() {
@@ -11,6 +11,7 @@ export function* watchRoomList() {
 export function* watchUser() {
   yield takeEvery(actionTypes.SIGN_IN_LOCAL, signInSaga);
   yield takeEvery("SIGN_UP_LOCAL", signUpSaga)
+  yield takeEvery(actionTypes.GET_USER_INFO, getInfoUserSaga)
 }
 
   
