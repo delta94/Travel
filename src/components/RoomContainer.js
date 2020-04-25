@@ -15,7 +15,7 @@ function RoomContainer({ context }) {
     return (
         <div className={styles.roomContainer}>
             <RoomFilter rooms={rooms}></RoomFilter>
-            <RoomList rooms={sortedRooms}></RoomList>
+            <RoomList ></RoomList>
         </div>
     )
 }

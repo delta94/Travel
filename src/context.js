@@ -1,6 +1,18 @@
 import React, { Component } from 'react'
 import items from './data'
-const RoomContext = React.createContext();
+const RoomContext = React.createContext(); //Khoi tao gia tri ban dau cho contextApi
+// tra ve 1 object la provider và consumer
+//Context.Provider:
+//Provider là một HOC, truyền vào giá trị qua prop ( value – giá trị của Context)
+//Khi value thay đổi (state thay đổi), thành phần bên trong Provider này sẽ bị re-render
+
+//Context.Consumer:
+// Có thể sử dụng ở bất cứ đâu bên dưới Provider
+
+// Consumer get được giá trị của prop value của Provider thông qua prop children để sử dụng trong component
+
+// Ngoài ra còn có thể sử dụng Class.contextType để truy cập vào giá trị context này nữa.
+
 //RoomContext.Provider value={}
 
 export default class RoomProvider extends Component {
@@ -58,7 +70,7 @@ export default class RoomProvider extends Component {
         const value = event.type === 'checkbox' ? target.checked : target.value
         const name = event.target.name
         // const value = event.type === 'checkbox' ? target.checked:target.value
-        // console.log(type, name, value);
+        console.log(target, name, value);
         this.setState({
             [name]: value
         },

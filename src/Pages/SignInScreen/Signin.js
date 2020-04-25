@@ -1,6 +1,7 @@
-import React from 'react';
+import React from 'react'
 import styles from './Signin.scss';
-
+import * as actions from '../../store/actions';
+import { connect } from 'react-redux';
 
 class Signin extends React.Component {
 
@@ -19,9 +20,11 @@ class Signin extends React.Component {
         this.setState({
             [name]: value
         })
+        console.log(value)
     }
 
     onHandleLogin = () => {
+        debugger;
         this.props.signInLocal({
             email: this.state.email,
             password: this.state.password
@@ -80,4 +83,11 @@ class Signin extends React.Component {
 }
 
 
-export default Signin;
+
+const mapStateToProps = state => ({
+
+})
+const mapDispatchToProps = dispatch => ({
+    signInLocal: (signInData) => dispatch(actions.signInLocal(signInData)),
+})
+export default connect(mapStateToProps, mapDispatchToProps)(Signin);

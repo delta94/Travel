@@ -1,20 +1,27 @@
 import React, { Component } from 'react'
 import defaultBcg from '../../images/room-1.jpeg'
-import Hero from '../../components/Hero/Hero'
+// import Hero from '../../components/Hero/Hero'
 import Banner from '../../components/Banner/Banner'
 import { Link } from 'react-router-dom'
 import { RoomContext } from '../../context'
 import StyledHero from '../../components/StyledHero'
 import Date from '../../components/Daterpick/Date'
 import styles from './SingleRoom.scss'
+import PopupBooking from '../../../src/components/PopupBooking/PopupBooking'
 export default class SingleRoom extends Component {
     constructor(props) {
         super(props)
-        // console.log(this.props  )
+        // console.log(this.props )
         this.state = {
             slug: this.props.match.params.slug,
-            defaultBcg
+            defaultBcg,
+            isOpen: false
         };
+    }
+    toggleModal = () => {
+        this.setState({
+            isOpen: !this.state.isOpen
+        });
     }
 
     static contextType = RoomContext;
@@ -22,7 +29,7 @@ export default class SingleRoom extends Component {
     render() {
         const { getRoom } = this.context;
         const room = getRoom(this.state.slug);
-        // console.log(room);
+        console.log(room);
         if (!room) {
             return (<div className={styles.error}>
                 <h3>no such room could be found...</h3>
@@ -50,7 +57,7 @@ export default class SingleRoom extends Component {
                         <article className={styles.desc}>
                             <h3>details</h3>
                             <p>{description}</p>
-                            
+
                             <h3>Extras</h3>
                             <ul className={styles.extras}>
                                 {extras.map((item, index) => {
@@ -87,9 +94,17 @@ export default class SingleRoom extends Component {
                                         <label>Guests</label>
                                     </div> */}
                                     <div className={styles.saveArea}>
-                                        <button className={styles.btnSave}>
-                                            <span>Save Changes</span>
-                                        </button>
+                                        <div className={styles.btnSave}>
+                                            {/* <PopupBooking/> */}
+                                            <button onClick={this.toggleModal}>
+                                                Open the modal
+                                            </button>
+
+                                            <PopupBooking show={this.state.isOpen}
+                                                onClose={this.toggleModal}>
+                                                Here's some content for the modal
+                                            </PopupBooking>
+                                        </div>
                                     </div>
                                 </form>
                             </div>

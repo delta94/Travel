@@ -12,7 +12,17 @@
     padding: 47px 0px 66px;
     left: 0px;
     bottom: 0px;
-
+    margin-top: 100px;
+    .line2 {
+        margin-top: 25px;
+        display: flex;
+        label {
+            padding: 15px;
+            &:hover {
+                color: rgb(0, 132, 137);
+            }
+        }
+    }
     .footertitle {
         text-decoration: none;
         display: flex;

@@ -20,21 +20,33 @@
     background: rgb(0, 132, 137);
     cursor: pointer;
   }
-  .form_group {
+  .form_groups {
     text-transform: capitalize;
   
   }
-  .form_group label {
+  .form_groups label {
     display: block;
-    color: #D7D8DC;
+    font-size: 18px;
   }
   .form_control {
+    // width: 100%;
+    // border: 1px solid #D7D8DC;
+    // font-size: 1rem;
+    // border-radius: 5px;
+    // height: 30px;
+    // margin-top: 10px;
+    font-size: 17px;
+    margin-top: 5px;
+    padding-left: 15px;
+    // padding-right: 30px;
+    color: rgb(44, 44, 44);
+    background-color: rgb(247, 247, 247);
+    height: 40px;
     width: 100%;
-    border: 1px solid #D7D8DC;
-    font-size: 1rem;
-    border-radius: 5px;
-    height: 30px;
-    margin-top: 10px;
+    border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(235, 235, 235);
     
   }
   .priceCustom {
@@ -45,20 +57,32 @@
   }
   .size_inputs {
     display: flex;
-    
+    justify-content: space-between;
   }
   .size_input {
+    font-size: 17px;
+    margin-top: 5px;
+    padding-left: 5px;
+    padding-right: 10px;
+    color: rgb(44, 44, 44);
+    background-color: rgb(247, 247, 247);
+    height: 40px;
     width: 40%;
-    padding: 0.2rem;
-    border: 1px solid #D7D8DC;
-    border-radius: 0.3rem;
-    margin-right: 0.3rem;
+    border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(235, 235, 235);
   }
-  .single_extra label {
+  .single_extra {
+    input {
+      size: 18px;
+    }
+    label {
     display: inline-block;
-    font-size: 16px;
+    font-size: 18px;
     margin-left: 5px;
   }
+}
   @media screen and (min-width: 776px) {
     .filter_container {
       margin-top: -40px;

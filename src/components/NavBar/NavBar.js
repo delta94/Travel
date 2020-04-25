@@ -3,8 +3,9 @@ import styles from './NavBar.scss';
 import logo from './../../images/anh.png'
 import { FaAlignRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom'
-
-export default class NavBar extends Component {
+import * as actions from '../../../src/store/actions';
+import { connect } from 'react-redux';
+class NavBar extends Component {
     state = {
         isOpen: false
     }
@@ -31,6 +32,7 @@ export default class NavBar extends Component {
                         <li>
                             <Link to="/rooms">Rooms</Link>
                         </li>
+                        {this.props.isAuth ? <div><button>avt</button></div>:
                         <ul className={styles.btn_acc}>
                             <li className={styles.liSignin}>
                                 <Link to="/login" className={styles.Signin}>Sign in</Link>
@@ -38,7 +40,8 @@ export default class NavBar extends Component {
                             <li className={styles.liSignup}>
                                 <Link to="/signup" className={styles.Signup}>Sign up</Link>
                             </li>
-                        </ul>
+                        </ul>}
+                       
                     </ul>
 
 
@@ -47,3 +50,10 @@ export default class NavBar extends Component {
         )
     }
 }
+const mapStateToProps = state => ({
+    isAuth: state.user.isAuth
+})
+const mapDispatchToProps = dispatch => ({
+    
+})
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

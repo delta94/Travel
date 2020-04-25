@@ -1,0 +1,115 @@
+.container{
+    // margin-top: 6em;
+    width: 100%;
+    overflow: auto;
+    padding: 4em 0;
+    .content{
+        padding: 0em 0;
+        width: 80%;
+        margin: 0 auto;
+        .nav{
+            display: none;
+            float: left;
+            width: 20em;
+            background-color: #f7f7f7;
+            .navItem{
+                font-size: 1.1em;
+                padding: 1em;
+                border-bottom: solid 1px #cccccc;
+                &:hover{
+                    cursor: pointer;
+                    background-color: #466ec4;
+                    color: #fff;
+                    border-bottom: solid 1px #466ec4;
+                }
+                .icon{
+                    margin-right: 1em;
+                    font-size: 1.5em;
+                }
+            }
+        }
+        .profile{
+            float: right;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            .avt{
+                text-align: center;
+                .img{
+                    width: 12em;
+                    height: 12em;
+                    border-radius: 50%;
+                    background-color: #cccccc;
+                    margin: 0 auto;
+                }
+                .username{
+                    padding: 1em 0;
+                    font-size: 30px;
+                }
+            }
+            .info{
+                width: 100%;
+                .part {
+                    padding-bottom: 1em;
+                    .btn_update{
+                        text-decoration: none;
+                        letter-spacing: #fff;
+                        color: #fff;
+                        background: rgb(0, 132, 137);
+                        padding: 0.4rem 0.9rem;
+                        border: 3px solid rgb(0, 132, 137);
+                        transition: rgb(0, 132, 137);
+                        text-transform: uppercase;
+                        cursor: pointer;
+                        text-align: center;
+                        max-width: 364px;
+                    }
+                }
+            }
+        }
+        .mybooking{
+            float: right;
+            width: 100%;
+            // display: flex;
+            // flex-direction: column;
+            
+            .mybookingLine1 {
+                border-bottom: 2px solid gray;
+                height: 50px;
+            }
+        }
+    }
+}
+@media screen and (min-width: 768px) {
+    .container{
+        
+        .content{
+            .nav{
+                display: inline-block;
+            }
+            .profile{
+                width: 70%;
+                flex-direction: row;
+                border-left: solid 1px #cccccc;
+                justify-content: space-around;
+                .info{
+                    width: 50%;
+                }
+            }
+            .mybooking {
+                width: 70%;
+                flex-direction: row;
+                justify-content: space-around;
+                label {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .container{
+        
+    }
+}

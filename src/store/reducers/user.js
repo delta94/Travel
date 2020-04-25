@@ -4,13 +4,14 @@ const initialState = {
   isAuth: false,
   userInfo: {
     email: '',
-    username: '',
-    fullname: ''
+    name: ''
   }
 }
 
 const signInSuccess = (state, action) => {
-  return;
+  return {
+    isAuth: true
+  }
 }
 
 const reducer = (state = initialState, action) => {
