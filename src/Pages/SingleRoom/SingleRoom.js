@@ -10,8 +10,8 @@ import { connect } from 'react-redux';
 
 
 class SingleRoom extends Component {
-    
-    
+
+
     constructor(props) {
         super(props)
         this.state = {
@@ -34,36 +34,77 @@ class SingleRoom extends Component {
 
     bookRoom = () => {
         this.props.bookRoom({
-            
+
             roomID: this.props.roomID,
             checkInDate: this.state.startDate,
             checkOutDate: this.state.endDate,
         });
-        debugger;
+        this.setState({
+            isOpen: !this.state.isOpen
+        });
+        // debugger;
     }
 
     onChangeDate = (name, date) => {
         console.log(date);
-        debugger;
+        // debugger;
         this.setState({
             [name]: date
         })
-        
+
     }
 
 
     render() {
-        if(this.props.fields == null) return null;
+        if (this.props.fields == null) return null;
         const { name, description, capacity, size, price, extras, breakfast, pets, image } = this.props.fields;
-         const [mainImg, ...defaultImg] = image
+        const [mainImg, ...defaultImg] = image
         return (
-            <>
+            <>  
                 <StyledHero img={mainImg || this.state.defaultBcg}>
                     <Banner title={`${name} room`}>
                         <Link to="/rooms" className={styles.btn_primary}>back to rooms</Link>
                     </Banner>
                 </StyledHero>
-                <section className={styles.single_room}>
+                {this.state.isOpen ?
+                        <div className={styles.PopupArea}>
+                            <div className={styles.PopupAreaTitle}>Room Booking Comfirm</div>
+                            <header>
+                                <div className={styles.headerline}>
+                                    <span> Price :</span>
+                                    <h2>${price}
+                                        <span>/Night</span>
+                                    </h2>
+                                </div>
+                                <div className={styles.headerline}>
+                                    <span> Size :</span>
+                                    <h2>{size} <span>m2</span></h2>
+                                </div>
+                                <div className={styles.headerline}>
+                                    <span>Max capacity : {" "} </span>
+                                    <h2> {capacity > 1 ? `${capacity} people` : `${capacity} person `}</h2>
+                                </div>
+                                <span>{pets ? "Pet allowed" : "No pets allowed"}</span>
+                                <span style={{ marginTop: "20px" }}>{breakfast && "Free breakfast included"}</span>
+                            </header>
+                            <div className={styles.content}>
+
+                                
+                                <div className={styles.btnYes} onClick={this.bookRoom}>
+                                    <div type='button'>Yes</div>
+                                </div>
+                                <div className={styles.btnNo} onClick={this.toggleModal}>
+                                    <div type='button'>No</div>
+                                </div>
+                                
+                            </div>
+
+                        </div>
+                        :
+                        <div style={{ display: "none" }}></div>
+                    }
+                <section className={this.state.isOpen ? "single_room1" : "single_room"}>
+                    
 
                     <div className={styles.single_room_images}>
                         {defaultImg.map((item, index) => {
@@ -99,19 +140,19 @@ class SingleRoom extends Component {
                                     <h2> {capacity > 1 ? `${capacity} people` : `${capacity} person `}</h2>
                                 </div>
                                 <span>{pets ? "Pet allowed" : "No pets allowed"}</span>
-                                <span style={{marginTop: "20px"}}>{breakfast && "Free breakfast included"}</span>
+                                <span style={{ marginTop: "20px" }}>{breakfast && "Free breakfast included"}</span>
                             </header>
                             <div className={styles.content}>
                                 <div className={styles.formContainer}>
                                     <div>
                                         <label>Dates</label>
-                                        <Date onChangeDate={this.onChangeDate}/>
+                                        <Date onChangeDate={this.onChangeDate} />
                                     </div>
 
                                     <div className={styles.saveArea}>
                                         <div className={styles.btnSave}>
-                                        
-                                            <button onClick={this.bookRoom} className={styles.btnSave_btn}>Save Changes</button>
+
+                                            <button onClick={this.toggleModal} className={styles.btnSave_btn}>Save Changes</button>
                                         </div>
                                     </div>
                                 </div>
@@ -146,7 +187,7 @@ class SingleRoom extends Component {
 const mapStateToProps = state => ({
     fields: state.room.fields,
     roomID: state.room._id,
-    
+
 })
 const mapDispatchToProps = dispatch => ({
     getRoom: (roomID) => dispatch(actions.getRoom(roomID)),

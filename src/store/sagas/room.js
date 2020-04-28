@@ -64,6 +64,7 @@ export function* cancelRoom(action) {
           let result = yield axios.post(`/cancelRoom`, {roomID: action.roomID}, tokenConfig())
         // debugger;
           alert(result.data.message)
+          yield getBookingRoom(action);
       }
   } catch (error) {
       alert(error.response.message)

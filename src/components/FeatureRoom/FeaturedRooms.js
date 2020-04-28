@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import * as actions from '../../../src/store/actions';
 import { connect } from 'react-redux';
 import Title from '../Title/Title'
-import Room from '../Room/RoomItem'
+// import Room from '../Room/RoomItem'
 import styles from './FeatureRoom.scss'
 
 class FeaturedRooms extends Component {
@@ -24,17 +24,20 @@ class FeaturedRooms extends Component {
         if(this.props.defaultRoomList != prevProps.defaultRoomList){
             this.props.featuredRoomList();
         }
-        console.log(this.props.featuredRoomList)
+        console.log(this.props.featuredRoomList1)
+
+        debugger;
     }
 
 
     render() {
-        console.log(this.props.featuredRoomList);
+        console.log(this.state.featuredRoomList1);
 
         return (
             <section className={styles.featured_rooms}>
                 <Title title="Featured rooms" />                
                 <div className={styles.featured_rooms_center}>
+                    {/* <Room /> */}
                 </div>
             </section>
         )
@@ -42,7 +45,7 @@ class FeaturedRooms extends Component {
 }
 const mapStateToProps = state => ({
     defaultRoomList: state.roomList.defaultRoomList,
-    featuredRoomList: state.roomList.featuredRoomList
+    featuredRoomList1: state.roomList.featuredRoomList
     
 })
 const mapDispatchToProps = dispatch => ({

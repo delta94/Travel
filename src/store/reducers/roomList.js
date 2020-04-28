@@ -13,7 +13,7 @@ const getAllRoomSuccess = (state, action) => {
     return {
         defaultRoomList: action.rooms,
         roomList: action.rooms,
-         featuredRoomList : action.rooms
+        featuredRoomList : action.rooms
     };
 }
 
