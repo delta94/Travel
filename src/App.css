@@ -75,7 +75,10 @@ h3 {
   list-style-type: none;
   display: flex;
   justify-content: flex-end;
+  
 }
+
+
 .nav-links a {
   display: block;
   text-decoration: none;
@@ -88,10 +91,11 @@ h3 {
 }
 .nav-links a:hover {
   color: rgb(0, 132, 137);
+  
 }
 
 .show-nav {
-  height: 50px;
+  height: 60px;
 }
 @media screen and (min-width: 768px) {
   

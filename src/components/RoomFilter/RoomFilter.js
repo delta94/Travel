@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-// import { RoomContext } from '../../context'
 import Title from '../Title/Title'
 import styles from './RoomFilter.scss'
 import * as actions from '../../store/actions';
@@ -11,13 +10,12 @@ class RoomFilter extends Component {
     constructor(props){
         super(props);
         this.state = {
-            types: [
-                "all",
-                "single",
-                "double",
-                "family",
-                "presidential"
-            ]
+            type: "all",
+            capacity: 1,
+            price: 600,
+            breakfast: false,
+            pets: false,
+            featured: false,
         }
     }
     componentDidMount(){
@@ -25,6 +23,26 @@ class RoomFilter extends Component {
             
         })
     }
+    handleChange = async (event) => {
+        const target = event.target
+        const value = event.type === 'checkbox' ? target.checked : target.value
+        const name = event.target.name
+        console.log(value);
+        await this.setState({
+            [name]: value
+        });
+
+        
+        this.props.filterRoomList(this.state)
+    }
+    types = [
+        'all',
+        'single',
+        'double',
+        'family',
+        'presidential'
+    ];
+    capacities = [1,2,3,6,10]
     render() {
         return (
             <section className={styles.filter_container}>
@@ -35,44 +53,46 @@ class RoomFilter extends Component {
                         <label htmlFor="type">Room type</label>
                         <select name="type"
                             id="type"
-                            // value={type}
+                            
                             className={styles.form_control}
-                            // onChange={handleChange}
+                            onChange={this.handleChange}
                             >
-                            {this.state.types.map((type, index) => 
+                            {this.types.map((type, index) => 
                                 <option value={type} key={index}>{type}</option>
                             )}
                         </select>
                     </div>
                     {/*end select type */}
                     {/*guest type */}
-                    {/* <div className={styles.form_groups}>
+                    <div className={styles.form_groups}>
                         <label htmlFor="capacity">Guest</label>
                         <select name="capacity"
                             id="capacity"
-                            value={capacity}
+                            value={this.state.capacity}
                             className={styles.form_control}
-                            onChange={handleChange}>
-                            {people}
+                            onChange={this.handleChange}>
+                            {this.capacities.map((capacity, index) => 
+                                <option value={capacity} key={index}>{capacity}</option>
+                            )}
                         </select>
-                    </div> */}
+                    </div>
                     {/*end guest type */}
                     {/*room price */}
-                    {/* <div className={styles.form_groups}>
+                    <div className={styles.form_groups}>
                         <label htmlFor="price">Room price
-                <span style={{ float: "right" }}>${price}</span>
+                <span style={{ float: "right" }}>${this.state.price}</span>
                         </label>
                         <input type="range"
                             name="price"
-                            min={minPrice}
-                            max={maxPrice}
+                            min={0}
+                            max={600}
                             id="price"
-                            value={price}
-                            onChange={handleChange}
+                            value={this.state.price}
+                            onChange={this.handleChange}
                             className={`${styles.form_control} ,${styles.priceCustom}`}
                         >
                         </input>
-                    </div> */}
+                    </div>
                     {/*end room price */}
                     {/*room size */}
                     {/* <div className={styles.form_groups}>
@@ -86,11 +106,11 @@ class RoomFilter extends Component {
                     {/*extras*/}
                     {/* <div className={styles.form_groups}>
                         <div className={styles.single_extra}>
-                            <input type="checkbox" name="breakfast" id="breakfast" checked={breakfast} onChange={handleChange} />
+                            <input type="checkbox" name="breakfast" id="breakfast" checked={this.state.breakfast} onChange={this.handleChange} />
                             <label htmlFor="breakfast">Breakfast</label>
                         </div>
                         <div className={styles.single_extra}>
-                            <input type="checkbox" name="pets" id="pets" checked={pets} onChange={handleChange} />
+                            <input type="checkbox" name="pets" id="pets" checked={this.state.pets} onChange={this.handleChange} />
                             <label htmlFor="pets">Pets</label>
                         </div>
                     </div> */}
@@ -110,5 +130,6 @@ const mapStateToProps = state => ({
 })
 const mapDispatchToProps = dispatch => ({
     getAllRoom: () => dispatch(actions.getAllRoom()),
-})
+    filterRoomList: (filterData) => dispatch(actions.filterRoomList(filterData))
+})  
 export default connect(mapStateToProps, mapDispatchToProps)(RoomFilter);

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styles from './Footer.scss';
 import footerimg from '../../images/footerimg.svg'
-import { FaAlignRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom'
 
 export default class Footer extends Component {

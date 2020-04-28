@@ -9,7 +9,7 @@ export const signInLocalSuccess = () => ({
 })
 
 export const signUpLocal = (signupData) =>{ 
-    debugger;
+    // debugger;
     return ({
     type: actions.SIGN_UP_LOCAL,
     signupData
@@ -30,4 +30,9 @@ export const getUserInfoSuccess = (userData) => ({
 
 export const signOut = () => ({
     type: actions.SIGN_OUT
+})
+
+export const updatePassword = (passwordData) => ({
+    type: actions.UPDATE_PASSWORD,
+    passwordData
 })

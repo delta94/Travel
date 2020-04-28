@@ -4,7 +4,7 @@ import Banner from '../components/Banner/Banner'
 import { Link } from 'react-router-dom'
 import Services from '../components/Services/Services'
 // import City from '../components/City/City'
-// import FeaturedRooms from '../components/FeatureRoom/FeaturedRooms'
+import FeaturedRooms from '../components/FeatureRoom/FeaturedRooms'
 
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
                 </Banner>
             </Hero>
             {/* <City/> */}
-            {/* <FeaturedRooms /> */}
+            <FeaturedRooms />
             <Services />
             
         </>

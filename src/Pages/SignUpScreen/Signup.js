@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Signup.scss';
 import * as actions from '../../store/actions';
 import { connect } from 'react-redux';
-
+import {  Redirect } from 'react-router-dom';
 class Signup extends React.Component {
     constructor(props) {
         super(props);
@@ -24,7 +24,7 @@ class Signup extends React.Component {
     }
 
     onHandleSignUp = () => {
-        debugger;
+        // debugger;
         this.props.signUpLocal({
             email: this.state.email,
             password: this.state.password,
@@ -39,7 +39,7 @@ class Signup extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.isAuth && this.props.isAuth != prevProps.isAuth) {
+        if (this.props.isAuth && this.props.isAuth !== prevProps.isAuth) {
             this.setState({
                 isAuth: this.props.isAuth
             })
@@ -47,6 +47,7 @@ class Signup extends React.Component {
     }
     render() {
         return (
+            this.props.isAuth ? <Redirect to="/login" /> :
             <div className={styles.SignUpForm}>
             <div className={styles.row}>
                 <div className={styles.login}>
@@ -91,7 +92,7 @@ class Signup extends React.Component {
 }
 
 const mapStateToProps = state => ({
-
+    isAuth: state.user.isAuth
 })
 const mapDispatchToProps = dispatch => ({
     signUpLocal: (SignUpData) => dispatch(actions.signUpLocal(SignUpData)),

@@ -1,3 +1,10 @@
+.Popup {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+}
+
 .btn_primary {
   display: inline-block;
   text-decoration: none;
@@ -198,20 +205,21 @@
                 margin-top: 20px;
                 justify-content: center;
                 .btnSave {
-                  cursor: pointer;
+                  
                   outline: none;
                   border-radius: 6px;
                   border: 1px solid rgb(0, 132, 137);
                   padding: 12px 78px;
                   background-color:rgb(0, 132, 137);
                   &:hover {
+                    cursor: pointer;
                     background-color:rgb(0, 132, 120);
                   }
-                  span {
+                  .btnSave_btn {
                     
                     color: #fff;
                     font-size: 15px;
-                    text-decoration: none;
+                    background-color:rgb(0, 132, 137);
                   }
                 }
               }

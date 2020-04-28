@@ -9,11 +9,14 @@ class NavBar extends Component {
     state = {
         isOpen: false
     }
-    componentDidMount(){
+    componentDidMount() {
         this.props.getUserInfo()
     }
     handleToggle = () => {
         this.setState({ isOpen: !this.state.isOpen })
+    }
+    signout = () => {
+        this.props.signout()
     }
     render() {
         return (
@@ -28,23 +31,38 @@ class NavBar extends Component {
                         </button>
                     </div>
                     <ul className={this.state.isOpen ? "nav-links show-nav" : "nav-links"}>
-                    
-                        <li>
+
+                        <li style={{marginTop:"10px"}}>
                             <Link to="/">Home</Link>
                         </li>
-                        <li>
+                        <li style={{marginTop:"10px"}}>
                             <Link to="/rooms">Rooms</Link>
                         </li>
-                        {this.props.isAuth ? <div><button>avt</button></div>:
-                        <ul className={styles.btn_acc}>
-                            <li className={styles.liSignin}>
-                                <Link to="/login" className={styles.Signin}>Sign in</Link>
+                        {this.props.isAuth ? <ul className={styles.btn_account}>
+                            <li>
+                                <Link to="/account">
+                                    <button className={styles.btn_avt}>
+                                    <div className={styles.img}></div>
+                                    {this.props.userInfo.name}
+                                    </button>
+                                </Link>
                             </li>
-                            <li className={styles.liSignup}>
-                                <Link to="/signup" className={styles.Signup}>Sign up</Link>
+                            <li>
+
+                                <button onClick={this.signout} className={styles.btn_signout}>
+                                    <i class="fas fa-sign-out-alt"></i>
+                                Sign Out</button>
                             </li>
-                        </ul>}
-                       
+                        </ul> :
+                            <ul className={styles.btn_acc}>
+                                <li className={styles.liSignin}>
+                                    <Link to="/login" className={styles.Signin}>Sign in</Link>
+                                </li>
+                                <li className={styles.liSignup}>
+                                    <Link to="/signup" className={styles.Signup}>Sign up</Link>
+                                </li>
+                            </ul>}
+
                     </ul>
 
 
@@ -54,9 +72,11 @@ class NavBar extends Component {
     }
 }
 const mapStateToProps = state => ({
-    isAuth: state.user.isAuth
+    isAuth: state.user.isAuth,
+    userInfo: state.user.userInfo,
 })
 const mapDispatchToProps = dispatch => ({
-    getUserInfo: () => dispatch(actions.getUserInfo())
+    getUserInfo: () => dispatch(actions.getUserInfo()),
+    signout: () => dispatch(actions.signOut())
 })
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

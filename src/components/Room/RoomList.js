@@ -11,7 +11,7 @@ class RoomList extends Component {
     }
     render() {
 
-
+        console.log(this.props.roomList);
 
         if (this.props.roomList.length === 0) {
             return (
@@ -32,7 +32,7 @@ class RoomList extends Component {
 }
 
 const mapStateToProps = state => ({
-    roomList: state.roomList
+    roomList: state.roomList.roomList
 })
 const mapDispatchToProps = dispatch => ({
     getAllRoom: () => dispatch(actions.getAllRoom()),

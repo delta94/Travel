@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './Signin.scss';
 import * as actions from '../../store/actions';
 import { connect } from 'react-redux';
-import { NavLink, Redirect } from 'react-router-dom';
+import {  Redirect } from 'react-router-dom';
 
 class Signin extends React.Component {
 
@@ -25,7 +25,7 @@ class Signin extends React.Component {
     }
 
     onHandleLogin = () => {
-        debugger;
+        // debugger;
         this.props.signInLocal({
             email: this.state.email,
             password: this.state.password
@@ -39,7 +39,7 @@ class Signin extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.isAuth && this.props.isAuth != prevProps.isAuth) {
+        if (this.props.isAuth && this.props.isAuth !== prevProps.isAuth) {
             this.setState({
                 isAuth: this.props.isAuth
             })
@@ -48,7 +48,7 @@ class Signin extends React.Component {
 
     render() {
         return (
-            this.state.isAuth ? <Redirect to="/" /> :
+            this.props.isAuth ? <Redirect to="/" /> :
                 <div className={styles.LoginForm}>
                     <div className={styles.row}>
                         <div className={styles.login}>
@@ -86,7 +86,7 @@ class Signin extends React.Component {
 
 
 const mapStateToProps = state => ({
-
+    isAuth: state.user.isAuth
 })
 const mapDispatchToProps = dispatch => ({
     signInLocal: (signInData) => dispatch(actions.signInLocal(signInData)),

@@ -7,6 +7,7 @@ export default function Input({title,type,placeholder}) {
             <input
             type={type}
             placeholder={placeholder}
+            disabled
             >
 
             </input>

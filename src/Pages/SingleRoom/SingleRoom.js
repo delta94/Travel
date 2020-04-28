@@ -1,44 +1,61 @@
 import React, { Component } from 'react'
 import defaultBcg from '../../images/room-1.jpeg'
-// import Hero from '../../components/Hero/Hero'
 import Banner from '../../components/Banner/Banner'
 import { Link } from 'react-router-dom'
-import { RoomContext } from '../../context'
 import StyledHero from '../../components/StyledHero'
 import Date from '../../components/Daterpick/Date'
 import styles from './SingleRoom.scss'
-import PopupBooking from '../../../src/components/PopupBooking/PopupBooking'
-export default class SingleRoom extends Component {
+import * as actions from '../../../src/store/actions';
+import { connect } from 'react-redux';
+
+
+class SingleRoom extends Component {
+    
+    
     constructor(props) {
         super(props)
-        // console.log(this.props )
         this.state = {
             slug: this.props.match.params.slug,
             defaultBcg,
-            isOpen: false
+            isOpen: false,
+            startDate: '',
+            endDate: ''
         };
     }
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
+
     toggleModal = () => {
         this.setState({
             isOpen: !this.state.isOpen
         });
     }
 
-    static contextType = RoomContext;
-    // componentDidMount(){}
+    bookRoom = () => {
+        this.props.bookRoom({
+            
+            roomID: this.props.roomID,
+            checkInDate: this.state.startDate,
+            checkOutDate: this.state.endDate,
+        });
+        debugger;
+    }
+
+    onChangeDate = (name, date) => {
+        console.log(date);
+        debugger;
+        this.setState({
+            [name]: date
+        })
+        
+    }
+
+
     render() {
-        const { getRoom } = this.context;
-        const room = getRoom(this.state.slug);
-        console.log(room);
-        if (!room) {
-            return (<div className={styles.error}>
-                <h3>no such room could be found...</h3>
-                <Link to="/rooms" className={styles.btn_primary}>back to rooms</Link>
-            </div>
-            )
-        }
-        const { name, description, capacity, size, price, extras, breakfast, pets, images } = room;
-        const [mainImg, ...defaultImg] = images
+        if(this.props.fields == null) return null;
+        const { name, description, capacity, size, price, extras, breakfast, pets, image } = this.props.fields;
+         const [mainImg, ...defaultImg] = image
         return (
             <>
                 <StyledHero img={mainImg || this.state.defaultBcg}>
@@ -82,31 +99,22 @@ export default class SingleRoom extends Component {
                                     <h2> {capacity > 1 ? `${capacity} people` : `${capacity} person `}</h2>
                                 </div>
                                 <span>{pets ? "Pet allowed" : "No pets allowed"}</span>
-                                <span>{breakfast && "Free breakfast included"}</span>
+                                <span style={{marginTop: "20px"}}>{breakfast && "Free breakfast included"}</span>
                             </header>
                             <div className={styles.content}>
-                                <form className={styles.formContainer}>
+                                <div className={styles.formContainer}>
                                     <div>
                                         <label>Dates</label>
-                                        <Date />
+                                        <Date onChangeDate={this.onChangeDate}/>
                                     </div>
-                                    {/* <div>
-                                        <label>Guests</label>
-                                    </div> */}
+
                                     <div className={styles.saveArea}>
                                         <div className={styles.btnSave}>
-                                            {/* <PopupBooking/> */}
-                                            <button onClick={this.toggleModal}>
-                                                Open the modal
-                                            </button>
-
-                                            <PopupBooking show={this.state.isOpen}
-                                                onClose={this.toggleModal}>
-                                                Here's some content for the modal
-                                            </PopupBooking>
+                                        
+                                            <button onClick={this.bookRoom} className={styles.btnSave_btn}>Save Changes</button>
                                         </div>
                                     </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -135,3 +143,13 @@ export default class SingleRoom extends Component {
         )
     }
 }
+const mapStateToProps = state => ({
+    fields: state.room.fields,
+    roomID: state.room._id,
+    
+})
+const mapDispatchToProps = dispatch => ({
+    getRoom: (roomID) => dispatch(actions.getRoom(roomID)),
+    bookRoom: (roomID) => dispatch(actions.bookRoom(roomID))
+})
+export default connect(mapStateToProps, mapDispatchToProps)(SingleRoom);

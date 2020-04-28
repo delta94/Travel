@@ -1,30 +1,43 @@
 .container{
-    // margin-top: 6em;
     width: 100%;
     overflow: auto;
     padding: 4em 0;
     .content{
-        padding: 0em 0;
-        width: 80%;
+        padding: 0;
         margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         .nav{
-            display: none;
             float: left;
-            width: 20em;
-            background-color: #f7f7f7;
+            width: 280px;
+            margin-bottom: 25px;
+            background-color: #ffffff;
+            
             .navItem{
-                font-size: 1.1em;
-                padding: 1em;
+                width:100%;
+                font-size: 20px;
+                padding: 15px 20px;
                 border-bottom: solid 1px #cccccc;
+                justify-content: center;
+                border-radius: 6px;
+                margin-top: 5px;
+                
                 &:hover{
                     cursor: pointer;
-                    background-color: #466ec4;
+                    background-color: rgb(0, 132, 137);
                     color: #fff;
-                    border-bottom: solid 1px #466ec4;
+                    border-bottom: solid 1px rgb(0, 132, 137);
                 }
-                .icon{
-                    margin-right: 1em;
-                    font-size: 1.5em;
+                i {
+                    font-size: 25px;
+                    float: left;
+                    
+                }
+                span {
+                    float: left;
+                    margin-left: 20px;
+                    margin-top: 4px;
                 }
             }
         }
@@ -32,12 +45,14 @@
             float: right;
             width: 100%;
             display: flex;
+            padding: 0 28px;
             flex-direction: column;
             .avt{
                 text-align: center;
                 .img{
-                    width: 12em;
-                    height: 12em;
+                    background: url("../../images/avt.png") center/cover no-repeat;
+                    width: 168px;
+                    height: 168px;
                     border-radius: 50%;
                     background-color: #cccccc;
                     margin: 0 auto;
@@ -50,10 +65,30 @@
             .info{
                 width: 100%;
                 .part {
-                    padding-bottom: 1em;
+                    .passControl {
+                        display: flex;
+                        flex-direction:column;
+                        span {
+                            font-size: 18px;
+                            padding: .3em 0;
+                            color: #000000;
+                        }
+                        input {
+                            width: 100%;
+                            height: 50px;
+                            background-color: rgb(247, 247, 247);
+                            border-radius: 5px;
+                            display: block;
+                            margin-bottom: 15px;
+                            font-size: 16px;
+                            padding: 0 15px;
+                            border: 2px solid rgb(235, 235, 235);
+                            &:hover{
+                                border: 2px solid rgb(0, 132, 137);
+                            }   
+                        }
+                    }
                     .btn_update{
-                        text-decoration: none;
-                        letter-spacing: #fff;
                         color: #fff;
                         background: rgb(0, 132, 137);
                         padding: 0.4rem 0.9rem;
@@ -62,54 +97,136 @@
                         text-transform: uppercase;
                         cursor: pointer;
                         text-align: center;
-                        max-width: 364px;
+                        width: 100%;
+                        border-radius: 6px;
                     }
                 }
             }
         }
         .mybooking{
-            float: right;
-            width: 100%;
-            // display: flex;
-            // flex-direction: column;
             
-            .mybookingLine1 {
-                border-bottom: 2px solid gray;
-                height: 50px;
-            }
         }
     }
 }
 @media screen and (min-width: 768px) {
     .container{
+        width: 100%;
+        overflow: auto;
+        padding: 4em 0;
+        margin-bottom: auto;
         
         .content{
-            .nav{
+            width: 80%;
+            flex-direction: row;
+            align-items: flex-start;
+            
+            .nav {
+                float: left;
+                width: 20em;
+                margin-bottom: 25px;
+                background-color: #ffffff;
                 display: inline-block;
+                margin-right: 50px;
+                border-radius: 6px;
+                
             }
-            .profile{
+            .profile {
+                float: right;
+                display: flex;
+                padding: 0 2em;
                 width: 70%;
                 flex-direction: row;
-                border-left: solid 1px #cccccc;
+                border-left: 1px solid #ccc;
                 justify-content: space-around;
-                .info{
+                .avt {
+                    margin-top: 50px;
+                }
+                .info {
                     width: 50%;
                 }
             }
             .mybooking {
+                float: right;
+                display: flex;
+                padding: 0 2em;
                 width: 70%;
                 flex-direction: row;
-                justify-content: space-around;
-                label {
-                    font-size: 20px;
+                border-left: 1px solid #ccc;
+                .mybookingLine1 {
+                    width: 100%;
+                   label {
+                        border-bottom: 2px solid #ccc;
+                        font-size:20px;
+                        padding-bottom: 10px;
+                    }
+                    .noBooking {
+                        margin-top: 65px;
+                        display: flex;
+                        flex-direction:row;
+                        .noBookingtitle {
+                            padding: 50px;
+
+                        }
+                    }
+                }
+                .bookedRoom {
+                    display: flex;
+                    flex-direction: row;
+                    
+                    width: 100%;
+                    margin-top: 20px;
+                    border: 1px solid #ccc;
+                    box-shadow: 0 4px 10px 0 rgba(0,0,0,.1);
+                    background-color: #ffffff;
+                    border-radius: 6px;
+                    &:hover {
+                        box-shadow: 0 4px 13px 0 rgba(0,0,0,.2);
+                    }
+                    .bookedRoomimg {
+                        img {
+                            height: 100px;
+                            width: 100px;
+                            border-radius: 6px;
+                        }
+                    }
+                    .bookedRoomInfo {
+                        display: flex;
+                        flex-direction:row;
+                        width:83%;
+                        margin-left: 30px;
+
+                        .bookedRoomInfo_left{
+                            display: flex;
+                            flex-direction:column;
+                            span {
+                                margin-top:5px
+                            }
+                            .bookedRoomInfo_Name {
+                                font-size:30px;
+                            }
+                        }
+                        .bookedRoomInfo_right {
+                            display: flex;
+                            flex-direction:column;
+                            margin-left: 75px;
+                            margin-top: 45px;
+                        }
+                        
+                    }
+                    .btnCancel {
+                        float: right;
+                        color: #fff;
+                        background-color: #fb236a;;
+                        border-radius: 6px;
+
+                        &:hover {
+                            cursor: pointer;
+                        }
+
+                    }
                 }
             }
         }
     }
 }
 
-@media screen and (min-width: 1025px) {
-    .container{
-        
-    }
-}

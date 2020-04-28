@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
-import Sildeshow from '../SildeShow/SildeShow';
-// import styles from './Hero.scss'
+import React from 'react'
+
 
 export default function Hero({children,hero}) {
     return (
