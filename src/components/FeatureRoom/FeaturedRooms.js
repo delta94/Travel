@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import * as actions from '../../../src/store/actions';
 import { connect } from 'react-redux';
 import Title from '../Title/Title'
-// import Room from '../Room/RoomItem'
+import Room from '../Room/RoomItem'
 import styles from './FeatureRoom.scss'
 
 class FeaturedRooms extends Component {
@@ -31,13 +31,15 @@ class FeaturedRooms extends Component {
 
 
     render() {
-        console.log(this.state.featuredRoomList1);
+        console.log(this.props.featuredRoomList1);
 
         return (
             <section className={styles.featured_rooms}>
                 <Title title="Featured rooms" />                
                 <div className={styles.featured_rooms_center}>
-                    {/* <Room /> */}
+                {this.props.featuredRoomList1.map(item => {
+                    return <Room key={item.id} room={item} />
+                })}
                 </div>
             </section>
         )
